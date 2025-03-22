@@ -14,4 +14,4 @@ Dit project omvat het uitvoeren van A/B-testen om de effectiviteit van twee bied
 
 ## Gebruikte Technologieën:
 - Python (Pandas, Scipy, Statsmodels)
-- Jupyter Notebooks
+- Pycharm 
