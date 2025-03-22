@@ -20,7 +20,6 @@ De belangrijkste prestatie-indicator voor het bedrijf is de aankoop (purchase) m
 Daarom moeten de statistische analyses zich hierop concentreren.
 
 #***********************************************************************
-
 Datasetbeschrijving
 
 Deze dataset bevat gegevens over advertentieweergaven en gebruikersinteracties op een e-commercesite. 
@@ -34,7 +33,6 @@ De gegevens zijn opgeslagen in een Excel-bestand genaamd ab_test_data.xlsx,
 waarbij elke groep zich op een aparte werkblad bevindt.
 
 #**************************************************************************
-
 Metric Definities
 
 Impressie (Impression): Het aantal keren dat een advertentie is weergegeven.
