@@ -1,7 +1,7 @@
 
 #####################################################################
 #####################################################################
-##                           OPDRACHT 6 - AB TEST                  ##
+##                          AB TEST Project                  ##
 #####################################################################
 #####################################################################
 """
@@ -41,12 +41,7 @@ Aankoop (Purchase)    : Het aantal aankopen dat is gedaan na het klikken op een 
 Inkomsten (Earning)   : De inkomsten die zijn gegenereerd na een aankoop.
 """
 ##########################################
-# TAAK 1 (Gegevensvoorbereiding en Analyse)
-##########################################
-# Stap 1:
-# Lees de gegevens van de controle- en testgroep uit het bestand 'ab_test_data.xlsx'.
-# Wijs de gegevens van de controle- en testgroep toe aan afzonderlijke variabelen.
-#*******************************************************
+
 import itertools
 import numpy as np
 import pandas as pd
@@ -71,13 +66,6 @@ df_testGroup = pd.read_excel(filePath, sheet_name="Test Group")
 
 df_controlGroup.head()  # Maximum Bidding
 df_testGroup.head()  # Average Bidding
-
-
-# Stap 2:
-# Analyseer de basisstatistieken van beide groepen.
-# Bereken kernstatistieken zoals het gemiddelde, de mediaan en de standaarddeviatie.
-# Evalueer of er zichtbare verschillen zijn tussen de groepen.
-#*******************************************************
 
 ############################
 # Beschrijvende Statistieken
@@ -156,7 +144,6 @@ calculate_conversion_and_earning(df_testGroup)
 
 #**********************************************************************************
 
-# Stap 3:
 #Na de analyse worden de gegevens van de controle- en testgroep samengevoegd met behulp van de concat-methode.
 #*******************************************************
 df_controlGroup["Group"] = "Control"
@@ -167,20 +154,12 @@ df.head()
 df.tail()
 
 #############################################
-# TAAK 2 (Hypothesevorming voor A/B-test )
+# Hypothesevorming voor A/B-test
 #############################################
-#Stap 1:
-#Formuleer de hypothesen als volgt:
 
-#H₀ (Nulhypothese): Er is geen significant verschil tussen de twee groepen. (M₁ = M₂)
-#H₁ (Alternatieve hypothese): Er is een significant verschil tussen de twee groepen. (M₁ ≠ M₂)
-#*******************************************************
 # H0: M1 = M2 (Hoofdgroep en testgroep vertonen geen significant verschil in 'PURCHASE' (aankoop) gemiddelden.)
 # H1: M1 != M2 (...) er is een significant verschil.
 
-
-
-#Stap 2:
 #Bereken en vergelijk de gemiddelde aankoopcijfers (purchase) van de controle-
 # en testgroep om een eerste indruk te krijgen van mogelijke verschillen.
 #*******************************************************
@@ -201,15 +180,13 @@ Als p-waarde ≥ 0,05, dan kan dit verschil toevallig zijn en kunnen we de H₀-
 """
 
 #############################################
-# TAAK 3 (Hypothesetest en Veronderstellingscontroles )
+# Hypothesetest en Veronderstellingscontroles
 #############################################
-#Stap 1:
-# Voordat we de hypothesetest starten, moeten we de volgende aannames controleren:
 # 1 --->> Normaliteitstest
 #           Beoordeel aan de hand van de testresultaten of de controle-
 #           en testgroepen voldoen aan de normaliteitsaanname.
 #************************************************************
-# Varsayım Kontrolü:
+# Hypothesecontrole
 # H0: De testgroep en de controlegroep voldoen aan de aanname van een normale verdeling in de 'PURCHASE'-gegevens.
 # H1:..voldoet niet aan deze aanname.
 
@@ -271,7 +248,6 @@ Interpretatie:
     Dit betekent dat er geen verschil in varianties tussen de groepen is, en we mogen aannemen dat de varianties homogeen zijn.
 """
 
-# Stap 2:
 # Kies de juiste statistische test op basis van de resultaten van de normaliteits- en variantietests.
 #***************************************************************
 #
@@ -288,7 +264,6 @@ Dit betekent dat er geen probleem is met het gebruik van parametrische tests (zo
 
 """
 
-# Stap 3:
 # Analyseer de verkregen p-waarde en beoordeel of
 # er een significant verschil is in het gemiddelde aantal aankopen tussen de controle- en testgroepen.
 #***************************************************************
@@ -326,12 +301,10 @@ print('Test Stat = %.4f, p-value = %.4f' % (test_stat, pvalue))
 
 
 ################################################################################################################################
+# Conclusie en Aanbeveling
+#############################################
 
-#############################################
-# Taak 4: Conclusie en Aanbeveling
-#############################################
-#Stap 1:
-# Leg uit welke statistische test je hebt gebruikt en waarom je deze test hebt gekozen.
+# Welke statistische test is gebruikt en waarom is deze test gekozen?
 #*********************************************
 """
 Gebruikte test: Onafhankelijke Twee-Groep t-test (parametrisch) (Independent Two-Sample t-test)
@@ -351,9 +324,7 @@ H0 Hypothese: M₁ = M₂, oftewel er is geen significant verschil tussen de aan
 H1 Hypothese: M₁ ≠ M₂, oftewel er is een significant verschil tussen de aankoopgemiddelden van de twee groepen.
 """
 
-
-#Stap 2:
-#  --->> Op basis van de testresultaten, welke biedstrategie zou je de klant aanbevelen?
+#  --->> Op basis van de testresultaten, welke biedstrategie zou aanbevelen?
 #***********************************************
 """
 Testresultaten:
@@ -372,7 +343,7 @@ Daarom is het moeilijk om een effectievere biedstrategie te bepalen tussen
 Average Bidding (testgroep) en Maximum Bidding (controlegroep). Beide biedstrategieën lijken vergelijkbare resultaten op te leveren.
 """
 
-#  --->> Is Maximum Bidding of Average Bidding effectiever? en Onderbouw je aanbeveling met een duidelijke uitleg en de testresultaten.
+#  --->> Is Maximum Bidding of Average Bidding effectiever?
 #***********************************************************************************************
 """
 Aanbevelingen voor de Klant:
